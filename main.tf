@@ -9,7 +9,9 @@ module "acm_certificate" {
   tags                                = var.acm_tags
   enable_certificate_transparency_log = var.acm_enable_certificate_transparency_log
   route53_zone_id                     = var.route53_zone_id
-  provider = aws.global
+  providers = {
+    aws = aws.global
+  }
 }
 
 module "s3_bucket" {
